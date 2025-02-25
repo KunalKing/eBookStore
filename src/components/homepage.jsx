@@ -1,29 +1,60 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import zerotoOne from '../assets/zerotoOne.jpg'
+import { useEffect, useState } from 'react';
 
 export default function Homepage() {
-    const boxRef = useRef(null); // Ref for the box
+    const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        gsap.context(() => { // Context for cleanup
-            gsap.to(boxRef.current, { // Use the ref
-                y: "-50vh", // Start from below the viewport (adjust as needed)
-                opacity: 0, // Start invisible (optional)
-                duration: 2,
-                ease: "power2.out"
-            });
-            return () => gsap.revert(); // Cleanup function
-        }, boxRef); // Scope to the box element
-    }, []); // Empty dependency array: runs only once after mount
+        const fetchBooks = async () => {
+            try {
+                const response = await fetch('http://localhost:5175/api/books');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                setBooks(data);
+            } catch (err) {
+                setError(err);
+                console.error("Error fetching books:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchBooks();
+    }, []);
+
+    if (loading) {
+        return <div>Loading books...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
+    if (books.length === 0) {
+        return <div>No books found.</div>;
+    }
+
 
     return (
         <div>
-            <h1 className="Heading">Welcome to the eBook Store</h1>
-            <p>Scroll down to see the magic happen!!</p>
-            <div className="box green" ref={boxRef}>
-                <img src={zerotoOne} alt="Zero to One" style={{ maxWidth: '100%', height: 'auto' }} /> {/* Add the image */}
+            <div>
+                <h1>Book List</h1>
+                <ul>
+                    {books.map((book) => (
+                        <li key={book.book_id}>
+                            <h2>{book.title}</h2> {/* Only the title is displayed */}
+                        </li>
+                    ))}
+                </ul>
             </div>
+
+
         </div>
     );
 }
+
+//Next is to render the class box multiple times
+//make it mobile responsive

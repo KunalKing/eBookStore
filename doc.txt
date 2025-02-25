@@ -1,0 +1,14 @@
+Docs to create the project
+
+https://react.dev/learn
+https://gsap.com/resources/get-started/
+https://gsap.com/docs/v3/Installation/?tab=npm&module=esm&method=private+registry&tier=free&club=false&require=false&trial=true&ease=RoughEase%2C+CustomEase
+https://themeforest.net/search/ebook%20store
+https://styled-components.com/
+https://www.google.com/search?client=firefox-b-d&sca_esv=6416f73ddd930241&sxsrf=AHTn8zpIRk3rICNABUfuM0CPhABgafeTOQ:1740398614634&q=book+image+from+0+to+one&udm=2&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBpwxALD7bRaeOIZxqOFEngxArVnzSUyc1QpiuTUVHc4E7mfS7phR3Xv7xK7LS9NQY1b0IIh3trOVRNX77sJaoYXj9ZBwCRC525ul9xVM1JwYMZ3fP6hxQBmjG2sYfgeBfMG-pENvDh7twzL6ETNfe8Ui5xmwk5T42GW7hC8LG9oHgGH7fA&sa=X&ved=2ahUKEwidhsWJotyLAxX1xTgGHfBIDbwQtKgLegQIDxAB&biw=1536&bih=778&dpr=1.25#vhid=BxYc0HFQzTCmpM&vssid=mosaic
+
+
+step 1 - Creating Backend
+MAKING THE DB
+1) WE ARE GOING TO MAKE A DB SEPRATELY FOR MAKING IT MANAGRABLE.
+2) connect the backend with the database and make a rest api.
