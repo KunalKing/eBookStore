@@ -44,10 +44,10 @@ pool.connect((err, client, release) => {
 
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(cors({
-    origin: 'http://localhost:5174' // Replace with your React dev server URL
+    origin: 'http://localhost:5173' // Replace with your React dev server URL
 }));
 
 app.get("/api/books", async (req, res) => {

@@ -8,7 +8,7 @@ export default function Homepage() {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await fetch('http://localhost:5175/api/books');
+                const response = await fetch('http://localhost:5174/api/books'); // Update the port here
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
